@@ -12,14 +12,15 @@ cd your-repo-name
  ## Python
 
 ### 2. Create a venv
-
+```bash
 python3 -m venv venv
 source venv/bin/activate
-
+```
 
 ### 3. Install depencencies
+```bash
 pip install -r requirements.txt
-
+```
 
 ## Threejs
 ```bash
