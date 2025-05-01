@@ -55,6 +55,7 @@ prediction = output.argmax(1).squeeze().cpu().numpy()
 ---
 
 ## 📊 Resultados Visuales
+![Demo](resultados/transformacion_basica_python.gif)resultados
 
 ---
 
