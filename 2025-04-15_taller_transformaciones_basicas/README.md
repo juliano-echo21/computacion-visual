@@ -1,4 +1,4 @@
-# 🧪 Nombre del Taller
+# 🧪 1. Transformaciones Básicas
 
 ## 📅 Fecha
 `2025-05-01` 
@@ -55,7 +55,16 @@ prediction = output.argmax(1).squeeze().cpu().numpy()
 ---
 
 ## 📊 Resultados Visuales
-![Demo](resultados/transformacion_basica_python.gif)resultados
+
+### Python
+![transformacion_basica_python](resultados/transformacion_basica_python.gif)
+
+### Three.js
+
+
+### Processing
+
+
 
 ---
 
