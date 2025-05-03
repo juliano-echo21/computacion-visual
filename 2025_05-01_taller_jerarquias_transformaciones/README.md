@@ -1,4 +1,4 @@
-# 🧪 1. Jerarquía de Transformaciones
+# 🧪 3. Jerarquías y Transformaciones: El Árbol del Movimiento
 
 ## 📅 Fecha
 `2025-05-03` 
@@ -14,16 +14,15 @@ Aplicar estructuras jerárquicas y árboles de transformación para organizar es
 
 Lista los principales conceptos aplicados:
 
-- Archivos estandar de malla
-- Estructura de los modelos (vertives, arista y cara)
+- estructura padre-hijo
+- efectos en tiempo real.
 ---
 
 ## 🔧 Herramientas y Entornos
 
 Especifica los entornos usados:
 
-- Python ( `vedo`, `trimesh`)
-- Three.js / React Three Fiber (`OrbitControls`)
+- Three.js / React Three Fiber (`OrbitControls`,`Leva`,`AxesHelper`)
 
 ---
 
@@ -37,44 +36,44 @@ Especifica los entornos usados:
 
 ### 🔹 Código relevante
 
-### Python
-
-```python
-# === Extract geometry info ===
-vertices = mesh_trimesh.vertices
-faces = mesh_trimesh.faces
-```
-
 ### Código Threejs
 ```python
-<Edges
-        geometry={scene.children[0].geometry} // Primera malla del modelo
-        scale={1.01} // Ligeramente más grande para evitar solapamiento visual
-        threshold={15} // Ángulo para detectar aristas duras
-        color="black"
-      />
+<Leva />
+      <Canvas camera={{ position: [5, 5, 5], fov: 60 }}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} />
+        <OrbitControls />
+        <primitive object={new AxesHelper(5)} />
 
-      {/* Mostrar vértices como puntos */}
-      <Points
-        geometry={scene.children[0].geometry}
-        scale={1.02}
-      >
+        {/* Nodo padre */}
+        <group rotation={[rotX, rotY, rotZ]} position={[posX, posY, posZ]}>
+          {/* Hijo: cubo */}
+          <mesh position={[2, 0, 0]}>
+            <boxGeometry />
+            <meshStandardMaterial color="orange" />
+            <primitive object={new AxesHelper(2)} />
+
+            {/* Nieto: esfera */}
+            <mesh position={[1.5, 1.5, 0]}>
+              <sphereGeometry args={[0.4, 32, 32]} />
+              <meshStandardMaterial color="limegreen" />
+              <primitive object={new AxesHelper(1)} />
+            </mesh>
+          </mesh>
+        </group>
+      </Canvas>
+    </>
 ```
 
 ## 📊 Resultados Visuales
 
 
-### Python
-![Python results](resultados/python_results.png)
-![Python results](resultados/python_results_2.png)
-
-
 ### Three.js
 
-[Video on Youtube]()
+[Estructura padre hijo](/datos/jerarquia.mp4)
 
 ---
 
 ## 💬 Reflexión Final
 
-Interesante poder trabajar con modelos desde Python. No conocía las librerías Vedo ni trimesh
+La librería Leva me pareció muy completa e interactiva. Bastante versátil y util.
