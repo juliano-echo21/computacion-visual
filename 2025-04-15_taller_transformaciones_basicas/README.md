@@ -6,7 +6,7 @@
 
 ## 🎯 Objetivo del Taller
 
-Describe brevemente el objetivo del taller: ¿qué se pretende explorar, aplicar o construir?
+Explorar los conceptos fundamentales de transformaciones geométricas (traslación, rotación y escala) en distintos entornos de programación visual. Las transforaciones se realizaran en funcion del tiempo
 
 ---
 
@@ -15,11 +15,6 @@ Describe brevemente el objetivo del taller: ¿qué se pretende explorar, aplicar
 Lista los principales conceptos aplicados:
 
 - [ ] Transformaciones geométricas (escala, rotación, traslación)
-- [ ] Segmentación de imágenes
-- [ ] Shaders y efectos visuales
-- [ ] Entrenamiento de modelos IA
-- [ ] Comunicación por gestos o voz
-- [ ] Otro: _______________________
 
 ---
 
@@ -27,8 +22,8 @@ Lista los principales conceptos aplicados:
 
 Especifica los entornos usados:
 
-- Python (`opencv-python`, `torch`, `mediapipe`, `diffusers`, etc.)
-- Unity (versión LTS, XR Toolkit, Shader Graph)
+- Python ( `imegeio`, `numpy`, `matplotlib`)
+- Processing
 - Three.js / React Three Fiber
 - Jupyter / Google Colab
 
@@ -37,19 +32,36 @@ Especifica los entornos usados:
 ## 🧪 Implementación
 
 ### 🔹 Etapas realizadas
-1. Preparación de datos o escena.
-2. Aplicación de modelo o algoritmo.
+1. Preparación de datos y entorno.
+2. Implementación de los algortimos
 3. Visualización o interacción.
 4. Guardado de resultados.
 
 ### 🔹 Código relevante
 
-Incluye un fragmento que resuma el corazón del taller:
 
 ```python
-# Segmentación semántica con DeepLab
-output = model(input_tensor)['out']
-prediction = output.argmax(1).squeeze().cpu().numpy()
+def transform_matrix(t):
+    # Escalado progresivo
+    scale = 1 + 0.5 * np.sin(2 * np.pi * t)
+    S = np.array([[scale, 0, 0], [0, scale, 0], [0, 0, 1]])
+
+    # Rotación progresiva
+    angle = 2 * np.pi * t
+    R = np.array(
+        [
+            [np.cos(angle), -np.sin(angle), 0],
+            [np.sin(angle), np.cos(angle), 0],
+            [0, 0, 1],
+        ]
+    )
+
+    # Traslación progresiva
+    tx = 2 * np.cos(2 * np.pi * t)
+    ty = 2 * np.sin(2 * np.pi * t)
+    T = np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1]])
+
+    return T @ R @ S  # Orden: escalar -> rotar -> trasladar
 ```
 
 ---
@@ -61,43 +73,17 @@ prediction = output.argmax(1).squeeze().cpu().numpy()
 
 ### Three.js
 
+Video
 
 ### Processing
 
-
-
----
-
-## 🧩 Prompts Usados
-
+Video
 
 ---
+
 
 ## 💬 Reflexión Final
 
 Responde en 2-3 párrafos:
 
-- ¿Qué aprendiste o reforzaste con este taller?
-- ¿Qué parte fue más compleja o interesante?
-- ¿Qué mejorarías o qué aplicarías en futuros proyectos?
-
----
-
-## 👥 Contribuciones Grupales (si aplica)
-
-```markdown
-- Programé el detector de postura en MediaPipe
-- Generé los GIFs y documentación
-- Integré el control de voz con visualización en Unity
-```
-
----
-
-## ✅ Checklist de Entrega
-
-- [x] Carpeta `YYYY-MM-DD_nombre_taller`
-- [x] Código limpio y funcional
-- [x] GIF incluido con nombre descriptivo (si el taller lo requiere)
-- [x] Visualizaciones o métricas exportadas
-- [x] README completo y claro
-- [x] Commits descriptivos en inglés
+- Aprendí a crear gifs con python. Lo que más tomó tiempo fue la grabación de los videos
