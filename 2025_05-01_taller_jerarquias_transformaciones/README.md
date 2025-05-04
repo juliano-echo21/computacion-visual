@@ -1,4 +1,4 @@
-# 🧪 3. Jerarquías y Transformaciones: El Árbol del Movimiento
+# 🧪 2. Jerarquías y Transformaciones: El Árbol del Movimiento
 
 ## 📅 Fecha
 `2025-05-03` 

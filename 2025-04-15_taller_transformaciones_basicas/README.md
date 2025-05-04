@@ -1,4 +1,4 @@
-# 🧪 1. Transformaciones Básicas
+# 🧪 0. Transformaciones Básicas
 
 ## 📅 Fecha
 `2025-05-01` 

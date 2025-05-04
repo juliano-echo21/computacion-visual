@@ -1,4 +1,4 @@
-# 🧪 2. Construyendo un mundo 3D
+# 🧪 1. Construyendo un mundo 3D
 
 ## 📅 Fecha
 `2025-05-03` 
