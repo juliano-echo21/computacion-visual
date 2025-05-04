@@ -55,6 +55,12 @@ blur = cv2.GaussianBlur(img_gray, (5, 5), 0)
 kernel_sharpen = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]])
 sharpen = cv2.filter2D(img_gray, -1, kernel_sharpen)
 ```
+```python
+# Sobel X y Y
+sobelx = cv2.Sobel(img_gray, cv2.CV_64F, 1, 0, ksize=3)
+sobely = cv2.Sobel(img_gray, cv2.CV_64F, 0, 1, ksize=3)
+sobel_combined = cv2.magnitude(sobelx, sobely)
+```
 
 ## 📊 Resultados Visuales
 
