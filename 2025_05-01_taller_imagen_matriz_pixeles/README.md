@@ -59,15 +59,9 @@ if 200 + roi.shape[0] <= height and 200 + roi.shape[1] <= width:
 else:
     print("La región destino está fuera de los límites de la imagen.")
 ```
-
-
 ```python
-# Sobel X y Y
-sobelx = cv2.Sobel(img_gray, cv2.CV_64F, 1, 0, ksize=3)
-sobely = cv2.Sobel(img_gray, cv2.CV_64F, 0, 1, ksize=3)
-sobel_combined = cv2.magnitude(sobelx, sobely)
+bright_contrast_manual = cv2.convertScaleAbs(img_rgb, alpha=alpha, beta=beta)
 ```
-
 ## 📊 Resultados Visuales
 
 ![Resultados canales](resultados/channels_1.png)
