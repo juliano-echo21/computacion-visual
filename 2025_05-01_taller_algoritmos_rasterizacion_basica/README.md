@@ -7,6 +7,7 @@
 ## 🎯 Objetivo del Taller
 
 Comprender e implementar los algoritmos clásicos de rasterización para líneas, círculos y triángulos, entendiendo cómo se construyen imágenes píxel a píxel en una pantalla. El objetivo es desarrollar una base sólida sobre cómo se generan primitivas gráficas sin usar librerías de alto nivel.
+
 ---
 
 ## 🧠 Conceptos Aprendidos
