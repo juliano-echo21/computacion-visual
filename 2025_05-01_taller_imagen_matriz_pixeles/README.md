@@ -14,9 +14,9 @@ Comprender cómo se representa una imagen digital como una matriz numérica y ma
 
 Lista los principales conceptos aplicados:
 
-- Filtros Sobel
-- Filtros convolucionales
-- Filtro laplaciano
+- Canales RGB y HSV
+- Slicing de matrices
+- Intensidades
 - Librerías de visión por computadora
 ---
 
@@ -24,7 +24,7 @@ Lista los principales conceptos aplicados:
 
 Especifica los entornos usados:
 
-- Python (`opencv`,`numpy`,`matplotlib`)
+- Python (`cv2`,`numpy`,`matplotlib`)
 
 ---
 
@@ -38,23 +38,29 @@ Especifica los entornos usados:
 
 ### 🔹 Código relevante
 
-### Código Python aplicando filtros
+### Código Python 
 ```python
-# 2. Convertir a escala de grises
-img_gray = cv2.cvtColor(img_color, cv2.COLOR_RGB2GRAY)
+# Convertir a HSV
+img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+H, S, V = cv2.split(img_hsv)
 ```
 
 ```python
-# 3. Filtro de desenfoque (blur)
-blur = cv2.GaussianBlur(img_gray, (5, 5), 0)
+# 2. Acceder y mostrar los canales RGB
+R, G, B = cv2.split(img_rgb)
 ```
-
 
 ```python
-# 4. Filtro de realce (sharpening)
-kernel_sharpen = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]])
-sharpen = cv2.filter2D(img_gray, -1, kernel_sharpen)
+# 4. Slicing: copiar una región y pegarla en otro lugar
+height, width = img_rgb.shape[:2]
+roi = img_rgb[50:150, 50:150].copy()
+if 200 + roi.shape[0] <= height and 200 + roi.shape[1] <= width:
+    img_mod[200 : 200 + roi.shape[0], 200 : 200 + roi.shape[1]] = roi
+else:
+    print("La región destino está fuera de los límites de la imagen.")
 ```
+
+
 ```python
 # Sobel X y Y
 sobelx = cv2.Sobel(img_gray, cv2.CV_64F, 1, 0, ksize=3)
@@ -64,8 +70,11 @@ sobel_combined = cv2.magnitude(sobelx, sobely)
 
 ## 📊 Resultados Visuales
 
-![Resultados filtros](resultados/resultados_filtros.png)
-![Resultados filtros](resultados/resultados_filtros_2.png)
+![Resultados canales](resultados/channels_1.png)
+![Resultados canales](resultados/channels_2.png)
+![Resultados canales](resultados/histograms_1.png)
+![Resultados canales](resultados/histograms_2.png)
+
 
 
 ---
