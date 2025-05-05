@@ -1,4 +1,4 @@
-# 🧪 6. Análisis de Figuras Geométricas: Centroide, Área y Perímetro
+# 🧪 7. Análisis de Figuras Geométricas: Centroide, Área y Perímetro
 
 ## 📅 Fecha
 `2025-05-04` 
@@ -14,7 +14,8 @@ Detectar formas simples (círculos, cuadrados, triángulos) en imágenes binariz
 
 Lista los principales conceptos aplicados:
 
-- Rasterización
+- Binarización
+- Paquete OpenCV
 ---
 
 ## 🔧 Herramientas y Entornos
@@ -37,80 +38,52 @@ Especifica los entornos usados:
 
 ### Código Python 
 ```python
-def bresenham(x0, y0, x1, y1):
-    dx = abs(x1 - x0)
-    dy = abs(y1 - y0)
-    sx = 1 if x0 < x1 else -1
-    sy = 1 if y0 < y1 else -1
-    err = dx - dy
-
-    while True:
-        pixels_line[x0, y0] = (255, 0, 0)
-        if x0 == x1 and y0 == y1:
-            break
-        e2 = 2 * err
-        if e2 > -dy:
-            err -= dy
-            x0 += sx
-        if e2 < dx:
-            err += dx
-            y0 += sy
+# 2. Binarizar
+_, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY_INV)
 
 ```
 
 ```python
-def midpoint_circle(x0, y0, radius):
-    x = radius
-    y = 0
-    p = 1 - radius
-
-    while x >= y:
-        for dx, dy in [(x, y), (y, x), (-x, y), (-y, x), (-x, -y), (-y, -x), (x, -y), (y, -x)]:
-            if 0 <= x0 + dx < width and 0 <= y0 + dy < height:
-                pixels_circle[x0 + dx, y0 + dy] = (0, 0, 255)
-        y += 1
-        if p <= 0:
-            p = p + 2*y + 1
-        else:
-            x -= 1
-            p = p + 2*y - 2*x + 1
-
+# 3. Encontrar contornos
+contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 ```
 
 ```python
-def fill_triangle(p1, p2, p3):
-    # ordenar por y
-    pts = sorted([p1, p2, p3], key=lambda p: p[1])
-    (x1, y1), (x2, y2), (x3, y3) = pts
-
-    def interpolate(y0, y1, x0, x1):
-        if y1 - y0 == 0: return []
-        return [int(x0 + (x1 - x0) * (y - y0) / (y1 - y0)) for y in range(y0, y1)]
-
-    x12 = interpolate(y1, y2, x1, x2)
-    x23 = interpolate(y2, y3, x2, x3)
-    x13 = interpolate(y1, y3, x1, x3)
-
-    x_left = x12 + x23
-    for y, xl, xr in zip(range(y1, y3), x13, x_left):
-        for x in range(min(xl, xr), max(xl, xr)):
-            if 0 <= x < width and 0 <= y < height:
-                pixels_triangle[x, y] = (0, 255, 0)
-
+    # Calcular área y perímetro
+    area = cv2.contourArea(cnt)
+    perimeter = cv2.arcLength(cnt, True)
 ```
+
+```python
+# Calcular centroide
+    M = cv2.moments(cnt)
+    if M["m00"] != 0:
+        cx = int(M["m10"] / M["m00"])
+        cy = int(M["m01"] / M["m00"])
+    else:
+        cx, cy = 0, 0
+```
+```python
+# Aproximar contorno para identificar figura
+    approx = cv2.approxPolyDP(cnt, 0.04 * perimeter, True)
+    vertices = len(approx)
+    if vertices == 3:
+        shape = "Triángulo"
+    elif vertices == 4:
+        shape = "Cuadrado"
+    elif vertices > 4:
+        shape = "Círculo"
+    else:
+        shape = "Desconocida"
+```
+
 ## 📊 Resultados Visuales
 
-### Línea
-![Resultados linea](resultados/linea.png)
----
-### Circulo
-![Resultados circulo](resultados/circulo.png)
----
-### Triángulo
-![Resultados triangulo](resultados/triangulo.png)
+### Figuras encontradas con sus respectivas areas y perímetros
+![Figuras detectadas](resultados/shapes_detected.gif)
 
 ---
 
 ## 💬 Reflexión Final
 
-Interesante ver como se aplican conceptos matemáticos básicos en este tipo de ejericios
+Tuve dificultades generando el gift e intentando ajustar el texto para que se lograra ver medianamente bien
