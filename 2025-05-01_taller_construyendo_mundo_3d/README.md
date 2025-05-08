@@ -71,7 +71,7 @@ faces = mesh_trimesh.faces
 
 ### Three.js
 
-[Video on Youtube]()
+[Video on Youtube](https://youtube.com/shorts/A04FjK2F5_g)
 
 ---
 

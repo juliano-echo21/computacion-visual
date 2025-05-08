@@ -73,13 +73,13 @@ def transform_matrix(t):
 
 ### Three.js
 
-[Threejs Video on Youtube]()
+[Threejs Video on Youtube](https://youtu.be/_nA6J6jevOM)
 
 ### Processing
 
 Video
 
-[Processing Video on Youtube]()
+[Processing Video on Youtube](https://youtube.com/shorts/eOnTHlyO4a4)
 
 
 ## 💬 Reflexión Final

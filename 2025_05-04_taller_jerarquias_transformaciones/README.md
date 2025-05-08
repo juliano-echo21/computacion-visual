@@ -70,7 +70,7 @@ Especifica los entornos usados:
 
 ### Three.js
 
-![Estructura padre hijo](datos/jerarquia.mp4)
+![Estructura padre hijo video en YouTube](https://youtu.be/VF1yKKfOh_4)
 
 ---
 
