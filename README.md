@@ -1,32 +1,21 @@
-# Computacion-visual
-Repositorio para la materia Computación Visual 20205-1
+# Computación Visual
 
+Este repositorio contiene ejercicios, talleres y proyectos desarrollados como parte del curso de **Computación Visual**. El objetivo es aplicar conceptos fundamentales del procesamiento de imágenes, visión por computador, y gráficos computacionales, utilizando herramientas como Python, Three.js, React Three Fiber, y Processing.
 
-### 1. Clone the Repository
+## Contenido
 
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-```
- 
- ## Python
+- 📁 `talleres/` — Actividades prácticas
 
-### 2. Create a venv
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+## Tecnologías utilizadas
 
-### 3. Install depencencies
-```bash
-pip install -r requirements.txt
-```
+- `Python` (NumPy, OpenCV, Matplotlib, Vedo, Trimesh)
+- `Three.js` + `React Three Fiber`
+- `Processing` (modo Java)
+- `Colab / Jupyter Notebook`
 
-## Threejs
-```bash
-npm install three @react-three/fiber
-```
+## Cómo usar
 
-```bash
-npm install @react-three/drei
-```
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/visual-computing.git
+   cd visual-computing
