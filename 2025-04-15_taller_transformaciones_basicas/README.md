@@ -84,6 +84,5 @@ Video
 
 ## 💬 Reflexión Final
 
-Responde en 2-3 párrafos:
 
 - Aprendí a crear gifs con python. Lo que más tomó tiempo fue la grabación de los videos
