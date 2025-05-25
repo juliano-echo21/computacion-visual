@@ -91,14 +91,13 @@ Señal EEG Original: Visualización de la señal EEG simulada.
 Señal Filtrada en Banda Alpha: Visualización de la señal filtrada en la banda Alpha.
 Retroalimentación Visual: Ventana que cambia de color (verde o rojo) según la potencia Alpha calculada.
 
-## Resultados EEG Eye State Classification
+## Resultados Datos Sinteticos
 
 - alpha_power > threshold
 
 ![](datos/eeg_simulado_alto_alpha.png)
 
 
-## Resultados Datos Sinteticos
 
 - alpha_power < threshold
 
