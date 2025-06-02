@@ -5,6 +5,7 @@ Este repositorio contiene ejercicios, talleres y proyectos desarrollados como pa
 ## Contenido
 
 - 📁 `talleres/` — Actividades prácticas
+- 📁 `Presentaciones/` — Links a las diapositivas de las presentaciones realizadas
 
 ## Tecnologías utilizadas
 
@@ -19,3 +20,4 @@ Este repositorio contiene ejercicios, talleres y proyectos desarrollados como pa
    ```bash
    git clone https://github.com/tu-usuario/visual-computing.git
    cd visual-computing
+   ```
